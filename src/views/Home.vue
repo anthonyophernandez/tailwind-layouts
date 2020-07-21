@@ -110,7 +110,7 @@
               </a>
           </div>
         </nav>
-        <div class="w-full">
+        <div class="w-full mb-6">
           <h4 class="flex items-center w-full px-2 py-2 text-sm tracking-tighter text-black font-bold">
             Community Sponsors
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 icon icon-tabler icon-tabler-heart" viewBox="0 0 24 24" stroke-width="1.5" stroke="#E91E63" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -118,9 +118,28 @@
               <path d="M12 20l-7 -7a4 4 0 0 1 6.5 -6a.9 .9 0 0 0 1 0a4 4 0 0 1 6.5 6l-7 7" />
             </svg>
           </h4>
-          <div class="grid grid-cols-1 gap-6"></div>
+          <div class="grid grid-cols-1 gap-6 w-full px-2 mb-4">
+            <div class="w-full">
+              <a class="w-full text-sm text-blue-500 font-bold cursor-pointer">Digital Ocean</a>
+              <p class="w-full mt-2 text-sm text-gray-600">The simplest cloud platform for developers & teams.</p>
+            </div>
+            <div class="w-full">
+              <a class="w-full text-sm text-gray-900 font-bold cursor-pointer">CloudBees Rollout</a>
+              <p class="w-full mt-2 text-sm text-gray-600">Release new features continuously. Without any of the risk.</p>
+            </div>
+            <div class="w-full">
+              <a class="w-full text-sm text-gray-700 font-bold cursor-pointer">DIVERSIFY TECH</a>
+              <p class="w-full mt-2 text-sm text-gray-600">We connect underrepresented people in tech to opportunities..</p>
+            </div>
+            <a class="flex justify-center items-center w-full h-10 bg-gray-500 hover:bg-gray-600 text-sm cursor-pointer rounded-sm">Become a sponsor</a>
+          </div>
+          <div class="w-full">
+            <a class="cursor-pointer">
+              <img class="w-full h-56 bg-pink-500 rounded-sm">
+            </a>
+            <h3 class="w-full text-center text-md text-indigo-700 font-bold"><a class="cursor-pointer">A Book for Junior Devs</a></h3>
+          </div>
         </div>
-        <div class="w-full"></div>
       </aside>
       <main class="h-full w-3/5"></main>
       <aside class="h-full w-1/5"></aside>
