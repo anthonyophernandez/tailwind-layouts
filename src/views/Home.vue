@@ -141,7 +141,86 @@
           </div>
         </div>
       </aside>
-      <main class="h-full w-3/5"></main>
+      <main class="h-full w-3/5 px-3">
+        <header class="flex items-center h-10 w-full mb-2">
+          <div class="flex items-center justify-between w-full">
+            <h2 class="py-2 text-xl font-bold">Posts</h2>
+            <nav class="flex">
+              <a class="cursor-pointer rounded-sm border-b-2 border-indigo-500 hover:bg-gray-300 hover:text-indigo-500 p-2 mr-2">Feed</a>
+              <a class="cursor-pointer rounded-sm hover:bg-gray-300 hover:text-indigo-500 p-2 mr-2">Week</a>
+              <a class="cursor-pointer rounded-sm hover:bg-gray-300 hover:text-indigo-500 p-2 mr-2">Month</a>
+              <a class="cursor-pointer rounded-sm hover:bg-gray-300 hover:text-indigo-500 p-2 mr-2">Year</a>
+              <a class="cursor-pointer rounded-sm hover:bg-gray-300 hover:text-indigo-500 p-2 mr-2">Infinity</a>
+              <a class="cursor-pointer rounded-sm hover:bg-gray-300 hover:text-indigo-500 p-2">Latest</a>
+            </nav>
+          </div>
+        </header>
+        <div
+          class="w-full h-48 bg-gray-100 border border-gray-400 mb-2"
+          v-for="i in 30"
+          :key="i">
+          <div class="w-full h-full flex flex-col justify-between p-3">
+            <div class="flex items-center h-8 mb-1">
+              <a class="cursor-pointer">
+                <div class="w-8 h-8 bg-gray-500 rounded-full"></div>
+              </a>
+              <div class="flex flex-col justify-center items-start ml-2">
+                <p class="text-sm text-gray-600 hover:text-gray-900">
+                  <a class="cursor-pointer">
+                    {{ story.author }}
+                  </a>
+                </p>
+                <a class="text-xs text-gray-600 hover:text-gray-900 cursor-pointer">
+                    {{ story.date }}
+                  </a>
+              </div>
+            </div>
+            <div class="flex flex-col justify-between h-full ml-10">
+              <h2 class="text-black hover:text-indigo-700 text-2xl font-bold mb-1">
+                <a class="cursor-pointer">
+                  {{ story.title }}
+                </a>
+              </h2>
+              <div class="w-full mb-2">
+                <a class="cursor-pointer mr-3" v-for="tag in story.tags" :key="tag">
+                  <span class="text-gray-600 hover:text-gray-900">#{{ tag }}</span>
+                </a>
+              </div>
+              <div class="flex justify-between items-center w-full">
+                <div class="flex">
+                  <a class="flex items-center text-gray-700 hover:text-gray-900 cursor-pointer py-2 mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 mr-1 inline icon icon-tabler icon-tabler-heart stroke-current" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z"/>
+                      <path d="M12 20l-7 -7a4 4 0 0 1 6.5 -6a.9 .9 0 0 0 1 0a4 4 0 0 1 6.5 6l-7 7" />
+                    </svg>
+                    <span class="text-sm">
+                      {{ story.reactions }}
+                      reactions
+                    </span>
+                  </a>
+                  <a class="flex items-center text-gray-700 hover:text-gray-900 cursor-pointer py-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 mr-1 inline icon icon-tabler icon-tabler-message-circle stroke-current" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z"/>
+                      <path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1" />
+                      <line x1="12" y1="12" x2="12" y2="12.01" />
+                      <line x1="8" y1="12" x2="8" y2="12.01" />
+                      <line x1="16" y1="12" x2="16" y2="12.01" />
+                    </svg>
+                    <span class="text-sm">
+                      {{ story.comments }}
+                      comments
+                    </span>
+                  </a>
+                </div>
+                <div class="flex items-center justify-between w-32">
+                  <p class="text-xs">{{ story.time }}</p>
+                  <button class="h-8 bg-gray-400 hover:bg-gray-500 text-gray-700 hover:text-gray-900 px-2 rounded-sm">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
       <aside class="h-full w-64">
         <section class="w-full mb-4 bg-gray-100 border border-gray-400 rounded-sm">
           <header class="w-full px-3 py-3 border-b">
@@ -439,7 +518,16 @@ export default {
         'useReducer vs useState',
         'Install Zsh Ubuntu',
         'CTF for Beginners'
-      ]
+      ],
+      story: {
+        author: 'Name ABC',
+        date: 'Jul 20',
+        title: 'Getting into Vue',
+        tags: ['vue', 'beginners', 'webdev', 'productivity'],
+        reactions: 42,
+        comments: 3,
+        time: '2 min read'
+      }
     }
   },
   methods: {
