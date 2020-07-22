@@ -1,23 +1,25 @@
 <template>
   <div class="w-full bg-gray-200">
     <header class="h-16 w-full bg-gray-100 border-b border-gray-400">
-      <div class="flex justify-between items-center h-full w-4/6 mx-auto">
-        <div class="flex w-2/6">
-          <a class="flex justify-center items-center h-10 w-12 px-2 rounded-sm bg-black text-white text-lg font-bold cursor-pointer">DEV</a>
+      <div class="flex justify-between items-center h-full w-full xl:w-3/4 mx-auto">
+        <div class="flex w-5/6 sm:w-1/2 ml-1 mr-2">
+          <a class="cursor-pointer">
+            <div class="flex justify-center items-center h-10 w-12 px-2 rounded-sm bg-black text-white text-lg font-bold cursor-pointer">DEV</div>
+          </a>
           <form class="h-10 w-full ml-4" @submit.prevent="">
             <input class="h-full w-full py-2 px-2 appearance-none border border-r-2 border-b-2 border-gray-400 rounded-sm focus:outline-none focus:border-indigo-500 placeholder-gray-600" type="text" placeholder="Search...">
           </form>
         </div>
 
-        <div class="flex justify-between items-center h-full w-64">
-          <button class="h-10 py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-sm">Write a post</button>
-          <a class="flex justify-center items-center h-10 w-10 rounded-full cursor-pointer hover:bg-gray-300">
+        <div class="flex justify-end sm:justify-between items-center h-full w-auto">
+          <button class="h-10 mr-2 py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-sm hidden sm:block">Write a post</button>
+          <a class="flex justify-center items-center h-10 w-10 mr-2 rounded-full cursor-pointer hover:bg-gray-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 icon icon-tabler icon-tabler-square" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z"/>
               <rect x="4" y="4" width="16" height="16" rx="2" />
             </svg>
           </a>
-          <a class="flex justify-center items-center h-10 w-10 rounded-full cursor-pointer hover:bg-gray-300">
+          <a class="flex justify-center items-center h-10 w-10 mr-2 rounded-full cursor-pointer hover:bg-gray-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 icon icon-tabler icon-tabler-bell" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z"/>
               <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
@@ -34,8 +36,8 @@
         </div>
       </div>
     </header>
-    <div class="flex h-full w-8/12 py-2 mx-auto bg-gray-200">
-      <aside class="h-full w-1/5">
+    <div class="flex h-full w-full xl:w-3/4 md:px-2 pt-2 mx-auto bg-gray-200 mb-2">
+      <aside class="h-full md:w-1/3 lg:w-1/4 xl:w-1/4 hidden md:block">
         <nav class="w-full mb-6">
           <a class="flex items-center w-full h-10 px-2 rounded-sm cursor-pointer font-bold hover:text-indigo-700 hover:bg-gray-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 mr-2 icon icon-tabler icon-tabler-login" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -141,11 +143,11 @@
           </div>
         </div>
       </aside>
-      <main class="h-full w-3/5 px-3">
+      <main class="h-full w-full sm:w-full md:w-2/3 lg:w-1/2 xl:w-1/2 md:px-3">
         <header class="flex items-center h-10 w-full mb-2">
           <div class="flex items-center justify-between w-full">
             <h2 class="py-2 text-xl font-bold">Posts</h2>
-            <nav class="flex">
+            <nav class="hidden sm:flex">
               <a class="cursor-pointer rounded-sm border-b-2 border-indigo-500 hover:bg-gray-300 hover:text-indigo-500 p-2 mr-2">Feed</a>
               <a class="cursor-pointer rounded-sm hover:bg-gray-300 hover:text-indigo-500 p-2 mr-2">Week</a>
               <a class="cursor-pointer rounded-sm hover:bg-gray-300 hover:text-indigo-500 p-2 mr-2">Month</a>
@@ -155,8 +157,8 @@
             </nav>
           </div>
         </header>
-        <div
-          class="w-full h-48 bg-gray-100 border border-gray-400 mb-2"
+        <article
+          class="w-full h-48 bg-gray-100 border border-gray-400 md:mb-2"
           v-for="i in 30"
           :key="i">
           <div class="w-full h-full flex flex-col justify-between p-3">
@@ -183,7 +185,7 @@
               </h2>
               <div class="w-full mb-2">
                 <a class="cursor-pointer mr-3" v-for="tag in story.tags" :key="tag">
-                  <span class="text-gray-600 hover:text-gray-900">#{{ tag }}</span>
+                  <span class="text-sm md:text-base text-gray-600 hover:text-gray-900">#{{ tag }}</span>
                 </a>
               </div>
               <div class="flex justify-between items-center w-full">
@@ -195,7 +197,7 @@
                     </svg>
                     <span class="text-sm">
                       {{ story.reactions }}
-                      reactions
+                      <span class="hidden sm:inline">reactions</span>
                     </span>
                   </a>
                   <a class="flex items-center text-gray-700 hover:text-gray-900 cursor-pointer py-2">
@@ -208,7 +210,7 @@
                     </svg>
                     <span class="text-sm">
                       {{ story.comments }}
-                      comments
+                       <span class="hidden sm:inline">comments</span>
                     </span>
                   </a>
                 </div>
@@ -219,9 +221,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </article>
       </main>
-      <aside class="h-full w-64">
+      <aside class="h-full lg:w-1/4 xl:w-1/4 hidden lg:block">
         <section class="w-full mb-4 bg-gray-100 border border-gray-400 rounded-sm">
           <header class="w-full px-3 py-3 border-b">
             <h3 class="text-base font-bold">Join DEV</h3>
@@ -410,7 +412,7 @@
           </div>
         </section>
         <section class="w-full mb-4 border-b border-gray-400">
-          <header class="w-full px-3 py-3 border-b">
+          <header class="w-full px-3 py-3">
             <h3 class="text-base font-bold">
               trending guides/resources
             </h3>
@@ -422,7 +424,7 @@
           </div>
         </section>
         <section class="w-full mb-4 border-b border-gray-400">
-          <header class="w-full px-3 py-3 border-b">
+          <header class="w-full px-3 py-3">
             <h3 class="text-base font-bold">
               recently queried
             </h3>
@@ -435,6 +437,42 @@
         </section>
       </aside>
     </div>
+    <footer class="w-full bg-gray-400">
+      <div class="flex flex-col-reverse sm:flex-row justify-between w-full xl:w-3/4 m-auto">
+        <div class="grid gap-2">
+          <a class="cursor-pointer">
+            <div class="flex justify-center items-center h-10 w-12 px-2 rounded-sm bg-black text-white text-lg font-bold cursor-pointer">DEV</div>
+          </a>
+          <p>A constructive and inclusive social network. Open source and radically transparent.</p>
+          <p>DEV Community copyright 2016 - 2020</p>
+          <p>Built on Forem — the open source software that powers DEV and other inclusive communities.</p>
+          <p>Made with love and Ruby on Rails.</p>
+        </div>
+        <nav class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          <div>
+            <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2">Home</a>
+            <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2">Listings</a>
+            <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2">Podcasts</a>
+            <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2">Videos</a>
+            <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2">Tags</a>
+            <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2 font-bold">Sign In/Up</a>
+          </div>
+          <div>
+            <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2">Code of Conduct</a>
+            <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2">FAQ</a>
+            <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2">About</a>
+            <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2">Privacy policy</a>
+            <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2">Terms of use</a>
+            <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2">Contact</a>
+          </div>
+          <div>
+            <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2">Sponsors</a>
+            <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2">DEV Shop</a>
+          </div>
+        </nav>
+      </div>
+
+    </footer>
   </div>
 </template>
 
