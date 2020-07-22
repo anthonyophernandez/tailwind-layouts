@@ -144,10 +144,18 @@
         </div>
       </aside>
       <main class="h-full w-full sm:w-full md:w-2/3 lg:w-1/2 xl:w-1/2 md:px-3">
-        <header class="flex items-center h-10 w-full mb-2">
-          <div class="flex items-center justify-between w-full">
-            <h2 class="py-2 text-xl font-bold">Posts</h2>
-            <nav class="hidden sm:flex">
+        <header class="flex items-center justify-between h-10 w-full px-2 mb-2">
+          <button class="flex md:hidden justify-center items-center h-10 w-10 mr-2 rounded-sm focus:outline-none hover:bg-gray-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 icon icon-tabler icon-tabler-database" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <ellipse cx="12" cy="6" rx="8" ry="3"></ellipse>
+              <path d="M4 6v6a8 3 0 0 0 16 0v-6" />
+              <path d="M4 12v6a8 3 0 0 0 16 0v-6" />
+            </svg>
+          </button>
+          <div class="flex items-center justify-between w-full mr-2">
+            <h2 class="py-2 text-lg font-bold mr-2">Posts</h2>
+            <nav class="hidden sm:flex h-10">
               <a class="cursor-pointer rounded-sm border-b-2 border-indigo-500 hover:bg-gray-300 hover:text-indigo-500 p-2 mr-2">Feed</a>
               <a class="cursor-pointer rounded-sm hover:bg-gray-300 hover:text-indigo-500 p-2 mr-2">Week</a>
               <a class="cursor-pointer rounded-sm hover:bg-gray-300 hover:text-indigo-500 p-2 mr-2">Month</a>
@@ -155,7 +163,29 @@
               <a class="cursor-pointer rounded-sm hover:bg-gray-300 hover:text-indigo-500 p-2 mr-2">Infinity</a>
               <a class="cursor-pointer rounded-sm hover:bg-gray-300 hover:text-indigo-500 p-2">Latest</a>
             </nav>
+            <div class="relative block sm:hidden">
+              <select class="appearance-none bg-gray-100 border border-r-2 border-b-2 border-gray-500 text-black py-2 px-2 pr-8 rounded leading-tight focus:border-indigo-500 focus:outline-none">
+                <option value="feed" selected>Feed</option>
+                <option value="week">Week</option>
+                <option value="month">Month</option>
+                <option value="year">Year</option>
+                <option value="infinity">Infinity</option>
+                <option value="latest">Latest</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 icon icon-tabler icon-tabler-caret-down" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z"/>
+                  <path d="M18 15l-6-6l-6 6h12" transform="rotate(180 12 12)" />
+                </svg>
+              </div>
+            </div>
           </div>
+          <button class="flex lg:hidden justify-center items-center h-10 w-10 rounded-sm focus:outline-none hover:bg-gray-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 icon icon-tabler icon-tabler-bolt" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <polyline points="13 3 13 10 19 10 11 21 11 14 5 14 13 3" />
+            </svg>
+          </button>
         </header>
         <article
           class="w-full h-48 bg-gray-100 border border-gray-400 md:mb-2"
@@ -437,18 +467,52 @@
         </section>
       </aside>
     </div>
-    <footer class="w-full bg-gray-400">
-      <div class="flex flex-col-reverse sm:flex-row justify-between w-full xl:w-3/4 m-auto">
-        <div class="grid gap-2">
+    <footer class="w-full bg-gray-400 px-2 py-4 sm:py-8 lg:py-10">
+      <div class="flex flex-col-reverse md:flex-row justify-between w-full xl:w-3/4 m-auto">
+        <div class="grid gap-2 w-full md:w-56 px-2">
           <a class="cursor-pointer">
-            <div class="flex justify-center items-center h-10 w-12 px-2 rounded-sm bg-black text-white text-lg font-bold cursor-pointer">DEV</div>
+            <div class="flex justify-center items-center h-10 w-12 rounded-sm bg-black text-white text-lg font-bold cursor-pointer">DEV</div>
           </a>
-          <p>A constructive and inclusive social network. Open source and radically transparent.</p>
-          <p>DEV Community copyright 2016 - 2020</p>
-          <p>Built on Forem — the open source software that powers DEV and other inclusive communities.</p>
-          <p>Made with love and Ruby on Rails.</p>
+          <p class="text-sm">A constructive and inclusive social network. Open source and radically transparent.</p>
+          <div class="flex items-center">
+            <a class="cursor-pointer mx-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 icon icon-tabler icon-tabler-brand-twitter text-gray-700 hover:text-gray-900 stroke-current" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z"/>
+                <path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497 -3.753C20.18 7.773 21.692 5.25 22 4.009z" />
+              </svg>
+            </a>
+            <a class="cursor-pointer mx-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 icon icon-tabler icon-tabler-brand-facebook text-gray-700 hover:text-gray-900 stroke-current" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z"/>
+                <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+              </svg>
+            </a>
+            <a class="cursor-pointer mx-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 icon icon-tabler icon-tabler-brand-github text-gray-700 hover:text-gray-900 stroke-current" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z"/>
+                <path d="M9 19c-4.286 1.35-4.286-2.55-6-3m12 5v-3.5c0-1 .099-1.405-.5-2 2.791-.3 5.5-1.366 5.5-6.04a4.567 4.567 0 0 0 -1.333 -3.21 4.192 4.192 0 00-.08-3.227s-1.05-.3-3.476 1.267a12.334 12.334 0 0 0 -6.222 0C6.462 2.723 5.413 3.023 5.413 3.023a4.192 4.192 0 0 0 -.08 3.227A4.566 4.566 0 004 9.486c0 4.64 2.709 5.68 5.5 6.014-.591.589-.56 1.183-.5 2V21" />
+              </svg>
+            </a>
+            <a class="cursor-pointer mx-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 icon icon-tabler icon-tabler-brand-instagram text-gray-700 hover:text-gray-900 stroke-current" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z"/>
+                <rect x="4" y="4" width="16" height="16" rx="4" />
+                <circle cx="12" cy="12" r="3" />
+                <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+              </svg>
+            </a>
+            <a class="cursor-pointer mx-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 icon icon-tabler icon-tabler-brand-telegram text-gray-700 hover:text-gray-900 stroke-current" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z"/>
+                <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" />
+              </svg>
+            </a>
+          </div>
+          <p class="text-xs text-gray-700">DEV Community copyright 2016 - 2020</p>
+          <p class="text-xs text-gray-700">Built on <span class="cursor-pointer text-indigo-700">Forem</span> — the <span class="cursor-pointer text-indigo-700">open source</span> software that powers <span class="cursor-pointer text-indigo-700">DEV</span> and other inclusive communities.</p>
+          <p class="text-xs text-gray-700">Made with love and <span class="cursor-pointer text-indigo-700">Ruby on Rails.</span></p>
         </div>
-        <nav class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <nav class="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full mb-4 md:ml-16">
           <div>
             <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2">Home</a>
             <a class="block cursor-pointer hover:text-indigo-700 hover:bg-gray-500 rounded-sm py-2 px-2">Listings</a>
