@@ -1,6 +1,6 @@
 <template>
   <div class="w-full bg-gray-200">
-    <header class="h-16 w-full bg-gray-100 border-b border-gray-400">
+    <header class="fixed z-50 h-16 w-full bg-gray-100 border-b border-gray-400">
       <div class="flex justify-between items-center h-full w-full xl:w-3/4 mx-auto">
         <div class="flex w-5/6 sm:w-1/2 ml-1 mr-2">
           <a class="cursor-pointer">
@@ -36,8 +36,9 @@
         </div>
       </div>
     </header>
-    <div class="flex h-full w-full xl:w-3/4 md:px-2 pt-2 mx-auto bg-gray-200 mb-2">
-      <aside class="h-full md:w-1/3 lg:w-1/4 xl:w-1/4 hidden md:block">
+    <div class="h-16 w-full"></div>
+    <div class="relative flex h-full w-full xl:w-3/4 md:px-2 mx-auto bg-gray-200 mb-2">
+      <aside class="h-full md:w-1/3 lg:w-1/4 xl:w-1/4 p-2 md:block bg-gray-200" :class="openLeftClass()">
         <nav class="w-full mb-6">
           <a class="flex items-center w-full h-10 px-2 rounded-sm cursor-pointer font-bold hover:text-indigo-700 hover:bg-gray-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 mr-2 icon icon-tabler icon-tabler-login" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -143,9 +144,9 @@
           </div>
         </div>
       </aside>
-      <main class="h-full w-full sm:w-full md:w-2/3 lg:w-1/2 xl:w-1/2 md:px-3">
+      <main class="h-full w-full sm:w-full md:w-2/3 lg:w-1/2 xl:w-1/2 p-2 md:px-3">
         <header class="flex items-center justify-between h-10 w-full px-2 mb-2">
-          <button class="flex md:hidden justify-center items-center h-10 w-10 mr-2 rounded-sm focus:outline-none hover:bg-gray-300">
+          <button @click="toggleLeftSideBar" class="flex md:hidden justify-center items-center h-10 w-10 mr-2 rounded-sm focus:outline-none hover:bg-gray-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 icon icon-tabler icon-tabler-database" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z"/>
               <ellipse cx="12" cy="6" rx="8" ry="3"></ellipse>
@@ -180,7 +181,7 @@
               </div>
             </div>
           </div>
-          <button class="flex lg:hidden justify-center items-center h-10 w-10 rounded-sm focus:outline-none hover:bg-gray-300">
+          <button @click="toggleRightSideBar" class="flex lg:hidden justify-center items-center h-10 w-10 rounded-sm focus:outline-none hover:bg-gray-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 icon icon-tabler icon-tabler-bolt" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z"/>
               <polyline points="13 3 13 10 19 10 11 21 11 14 5 14 13 3" />
@@ -253,7 +254,7 @@
           </div>
         </article>
       </main>
-      <aside class="h-full lg:w-1/4 xl:w-1/4 hidden lg:block">
+      <aside class="h-full lg:w-1/4 xl:w-1/4 lg:block p-2 bg-gray-200" :class="openRightClass()">
         <section class="w-full mb-4 bg-gray-100 border border-gray-400 rounded-sm">
           <header class="w-full px-3 py-3 border-b">
             <h3 class="text-base font-bold">Join DEV</h3>
@@ -537,6 +538,8 @@
       </div>
 
     </footer>
+    <div v-if="isLeftSidebarOpen" @click="toggleLeftSideBar" class="fixed z-40 inset-0 opacity-25 bg-gray-900"></div>
+    <div v-if="isRightSidebarOpen" @click="toggleRightSideBar" class="fixed z-40 inset-0 opacity-25 bg-gray-900"></div>
   </div>
 </template>
 
@@ -547,6 +550,8 @@ export default {
   components: {},
   data () {
     return {
+      isLeftSidebarOpen: false,
+      isRightSidebarOpen: false,
       selectedTag: -1,
       tags: [
         'javascript',
@@ -635,6 +640,18 @@ export default {
   methods: {
     selectTag (index) {
       this.selectedTag = index
+    },
+    toggleLeftSideBar () {
+      this.isLeftSidebarOpen = !this.isLeftSidebarOpen
+    },
+    toggleRightSideBar () {
+      this.isRightSidebarOpen = !this.isRightSidebarOpen
+    },
+    openLeftClass () {
+      return (this.isLeftSidebarOpen) ? 'fixed block w-64 left-0 top-auto z-50 overflow-y-scroll' : 'hidden'
+    },
+    openRightClass () {
+      return (this.isRightSidebarOpen) ? 'fixed block w-64 right-0 top-auto z-50 overflow-y-scroll' : 'hidden'
     }
   }
 }
