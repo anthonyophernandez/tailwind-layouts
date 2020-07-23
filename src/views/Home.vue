@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-gray-200">
+  <div class="w-full bg-gray-200" :class="(isLeftSidebarOpen || isRightSidebarOpen) ? 'h-screen overflow-y-hidden' : ''">
     <header class="fixed z-50 h-16 w-full bg-gray-100 border-b border-gray-400">
       <div class="flex justify-between items-center h-full w-full xl:w-3/4 mx-auto">
         <div class="flex w-5/6 sm:w-1/2 ml-1 mr-2">
@@ -143,6 +143,7 @@
             <h3 class="w-full text-center text-md text-indigo-700 font-bold"><a class="cursor-pointer">A Book for Junior Devs</a></h3>
           </div>
         </div>
+        <div v-if="isLeftSidebarOpen" class="h-16 w-full"></div>
       </aside>
       <main class="h-full w-full sm:w-full md:w-2/3 lg:w-1/2 xl:w-1/2 p-2 md:px-3">
         <header class="flex items-center justify-between h-10 w-full px-2 mb-2">
@@ -260,14 +261,14 @@
             <h3 class="text-base font-bold">Join DEV</h3>
           </header>
           <div class="grid gap-2 w-full px-3 py-4">
-            <a class="flex justify-center items-center w-full h-12 py-2 px-4 bg-gray-900 hover:bg-black rounded-sm text-gray-100 cursor-pointer">
+            <a class="flex justify-center items-center w-full h-12 py-2 px-4 bg-gray-900 hover:bg-black rounded-sm text-sm text-gray-100 cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 mr-2 icon icon-tabler icon-tabler-brand-github" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z"/>
                 <path d="M9 19c-4.286 1.35-4.286-2.55-6-3m12 5v-3.5c0-1 .099-1.405-.5-2 2.791-.3 5.5-1.366 5.5-6.04a4.567 4.567 0 0 0 -1.333 -3.21 4.192 4.192 0 00-.08-3.227s-1.05-.3-3.476 1.267a12.334 12.334 0 0 0 -6.222 0C6.462 2.723 5.413 3.023 5.413 3.023a4.192 4.192 0 0 0 -.08 3.227A4.566 4.566 0 004 9.486c0 4.64 2.709 5.68 5.5 6.014-.591.589-.56 1.183-.5 2V21" />
               </svg>
               Sign In with GitHub
             </a>
-            <a class="flex justify-center items-center w-full h-12 py-2 px-4 bg-blue-500 hover:bg-blue-600 rounded-sm text-gray-100 cursor-pointer">
+            <a class="flex justify-center items-center w-full h-12 py-2 px-4 bg-blue-500 hover:bg-blue-600 rounded-sm text-sm text-gray-100 cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 mr-2 icon icon-tabler icon-tabler-brand-twitter" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z"/>
                 <path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497 -3.753C20.18 7.773 21.692 5.25 22 4.009z" />
@@ -442,7 +443,7 @@
             </a>
           </div>
         </section>
-        <section class="w-full mb-4 border-b border-gray-400">
+        <section v-if="!isRightSidebarOpen" class="w-full mb-4 border-b border-gray-400">
           <header class="w-full px-3 py-3">
             <h3 class="text-base font-bold">
               trending guides/resources
@@ -454,7 +455,7 @@
             </a>
           </div>
         </section>
-        <section class="w-full mb-4 border-b border-gray-400">
+        <section v-if="!isRightSidebarOpen" class="w-full mb-4 border-b border-gray-400">
           <header class="w-full px-3 py-3">
             <h3 class="text-base font-bold">
               recently queried
@@ -466,6 +467,7 @@
             </a>
           </div>
         </section>
+        <div v-if="isRightSidebarOpen" class="h-16 w-full"></div>
       </aside>
     </div>
     <footer class="w-full bg-gray-400 px-2 py-4 sm:py-8 lg:py-10">
