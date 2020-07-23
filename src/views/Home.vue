@@ -10,7 +10,6 @@
             <input class="h-full w-full py-2 px-2 appearance-none border border-r-2 border-b-2 border-gray-400 rounded-sm focus:outline-none focus:border-indigo-500 placeholder-gray-600" type="text" placeholder="Search...">
           </form>
         </div>
-
         <div class="flex justify-end sm:justify-between items-center h-full w-auto">
           <button class="h-10 mr-2 py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-sm hidden sm:block">Write a post</button>
           <a class="flex justify-center items-center h-10 w-10 mr-2 rounded-full cursor-pointer hover:bg-gray-300">
@@ -26,7 +25,7 @@
               <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
             </svg>
           </a>
-          <a class="flex justify-center items-center h-10 w-10 cursor-pointer hover:bg-gray-300">
+          <a class="flex justify-center items-center h-10 w-10 mr-2 cursor-pointer hover:bg-gray-300" @click="isMenuOpen = !isMenuOpen">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 icon icon-tabler icon-tabler-menu" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z"/>
               <line x1="4" y1="8" x2="20" y2="8" />
@@ -38,7 +37,7 @@
     </header>
     <div class="h-16 w-full"></div>
     <div class="relative flex h-full w-full xl:w-3/4 md:px-2 mx-auto bg-gray-200 mb-2">
-      <aside class="h-full md:w-1/3 lg:w-1/4 xl:w-1/4 p-2 md:block bg-gray-200" :class="openLeftClass()">
+      <aside class="h-full p-2 md:block bg-gray-200" :class="openLeftClass()">
         <nav class="w-full mb-6">
           <a class="flex items-center w-full h-10 px-2 rounded-sm cursor-pointer font-bold hover:text-indigo-700 hover:bg-gray-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 mr-2 icon icon-tabler icon-tabler-login" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -255,7 +254,7 @@
           </div>
         </article>
       </main>
-      <aside class="h-full lg:w-1/4 xl:w-1/4 lg:block p-2 bg-gray-200" :class="openRightClass()">
+      <aside class="h-full lg:block p-2 bg-gray-200" :class="openRightClass()">
         <section class="w-full mb-4 bg-gray-100 border border-gray-400 rounded-sm">
           <header class="w-full px-3 py-3 border-b">
             <h3 class="text-base font-bold">Join DEV</h3>
@@ -469,6 +468,33 @@
         </section>
         <div v-if="isRightSidebarOpen" class="h-16 w-full"></div>
       </aside>
+      <div v-if="isMenuOpen" class="absolute z-50 right-0 top-auto w-full sm:w-64 px-1">
+        <div class="w-full h-full bg-gray-100 border border-r-4 border-b-4 border-black">
+          <div class="grid gap-2 p-2 mb-2">
+            <a class="flex justify-center items-center w-full h-12 py-2 px-4 bg-gray-900 hover:bg-black rounded-sm text-sm text-gray-100 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 mr-2 icon icon-tabler icon-tabler-brand-github" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z"/>
+                <path d="M9 19c-4.286 1.35-4.286-2.55-6-3m12 5v-3.5c0-1 .099-1.405-.5-2 2.791-.3 5.5-1.366 5.5-6.04a4.567 4.567 0 0 0 -1.333 -3.21 4.192 4.192 0 00-.08-3.227s-1.05-.3-3.476 1.267a12.334 12.334 0 0 0 -6.222 0C6.462 2.723 5.413 3.023 5.413 3.023a4.192 4.192 0 0 0 -.08 3.227A4.566 4.566 0 004 9.486c0 4.64 2.709 5.68 5.5 6.014-.591.589-.56 1.183-.5 2V21" />
+              </svg>
+              Sign In with GitHub
+            </a>
+            <a class="flex justify-center items-center w-full h-12 py-2 px-4 bg-blue-500 hover:bg-blue-600 rounded-sm text-sm text-gray-100 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 mr-2 icon icon-tabler icon-tabler-brand-twitter" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z"/>
+                <path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497 -3.753C20.18 7.773 21.692 5.25 22 4.009z" />
+              </svg>
+              Sign In with Twitter
+            </a>
+            <a class="flex justify-center items-center w-full h-12 py-2 px-4 bg-gray-500 hover:bg-gray-600 rounded-sm text-sm text-gray-100 cursor-pointer">
+              More Sign In Options
+            </a>
+          </div>
+          <div class="w-full p-4 border-t border-gray-400">
+            <a class="cursor-pointer hover:text-indigo-700">All about DEV</a>
+          </div>
+        </div>
+
+      </div>
     </div>
     <footer class="w-full bg-gray-400 px-2 py-4 sm:py-8 lg:py-10">
       <div class="flex flex-col-reverse md:flex-row justify-between w-full xl:w-3/4 m-auto">
@@ -552,6 +578,7 @@ export default {
   components: {},
   data () {
     return {
+      isMenuOpen: false,
       isLeftSidebarOpen: false,
       isRightSidebarOpen: false,
       selectedTag: -1,
@@ -650,10 +677,10 @@ export default {
       this.isRightSidebarOpen = !this.isRightSidebarOpen
     },
     openLeftClass () {
-      return (this.isLeftSidebarOpen) ? 'fixed block w-64 left-0 top-auto z-50 overflow-y-scroll' : 'hidden'
+      return (this.isLeftSidebarOpen) ? 'fixed block w-64 md:w-64 lg:w-64 xl:w-64 left-0 top-auto z-50 overflow-y-scroll' : 'hidden md:w-1/3 lg:w-1/4 xl:w-1/4'
     },
     openRightClass () {
-      return (this.isRightSidebarOpen) ? 'fixed block w-64 right-0 top-auto z-50 overflow-y-scroll' : 'hidden'
+      return (this.isRightSidebarOpen) ? 'fixed block w-64 md:w-64 lg:w-64 xl:w-64 right-0 top-auto z-50 overflow-y-scroll' : 'hidden lg:w-1/4 xl:w-1/4'
     }
   }
 }
