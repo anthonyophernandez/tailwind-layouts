@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/dev-layout',
     name: 'DevLayout',
-    component: () => import(/* webpackChunkName: "dev-layout" */ '../views/DevLayout.vue')
+    component: () => import(/* webpackChunkName: "dev-layout" */ '../views/layouts/DevLayout.vue')
   }
 ]
 
