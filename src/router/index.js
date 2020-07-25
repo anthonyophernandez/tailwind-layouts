@@ -14,6 +14,11 @@ const routes = [
     path: '/dev-layout',
     name: 'DevLayout',
     component: () => import(/* webpackChunkName: "dev-layout" */ '../views/layouts/DevLayout.vue')
+  },
+  {
+    path: '/ecommerce-layout',
+    name: 'EcommerceLayout',
+    component: () => import(/* webpackChunkName: "ecommerce-layout" */ '../views/layouts/EcommerceLayout.vue')
   }
 ]
 
