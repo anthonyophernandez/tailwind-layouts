@@ -42,7 +42,7 @@
         </div>
       </div>
     </header>
-    <div v-if="isOpenSidebar" class="fixed z-50 inset-y-0 right-0 max-w-xs w-full h-full px-6 py-4 bg-white border-l border-gray-500">
+    <div v-show="isOpenSidebar" class="fixed z-50 inset-y-0 right-0 max-w-xs w-full h-full px-6 py-4 bg-white border-l border-gray-500">
       <div class="flex items-center justify-between">
         <h3 class="text-gray-800 text-xl">Your cart</h3>
         <button class="focus:outline-none" @click="toggleSidebar">
@@ -99,7 +99,67 @@
         </svg>
       </a>
     </div>
-    <div v-if="isOpenSidebar" @click="toggleSidebar" class="fixed z-40 inset-0 opacity-25 bg-gray-900"></div>
+    <div v-show="isOpenSidebar" @click="toggleSidebar" class="fixed z-40 inset-0 opacity-25 bg-gray-900"></div>
+    <main class="my-8">
+      <div class="mx-auto px-6">
+        <div class="flex items-center justify-center">
+          <div class="w-1/2 max-w-lg h-64">
+            <img class="w-full max-w-lg h-full mx-auto bg-indigo-500 rounded">
+          </div>
+          <div class="w-1/2 max-w-lg ml-6">
+            <h3 class="text-gray-800 text-lg">PRODUCT #1</h3>
+            <span class="text-gray-600">55$</span>
+            <hr class="my-3">
+            <div class="mt-1">
+              <span class="text-gray-800 text-sm">Count:</span>
+              <div class="flex items-center mt-2">
+                <button class="focus:outline-none text-gray-600 focus:text-gray-800">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-current icon icon-tabler icon-tabler-circle-minus" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <circle cx="12" cy="12" r="9" />
+                    <line x1="9" y1="12" x2="15" y2="12" />
+                  </svg>
+                </button>
+                <span class="text-gray-800 mx-2">1</span>
+                <button class="focus:outline-none text-gray-600 focus:text-gray-800">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-current icon icon-tabler icon-tabler-circle-plus" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <circle cx="12" cy="12" r="9" />
+                    <line x1="9" y1="12" x2="15" y2="12" />
+                    <line x1="12" y1="9" x2="12" y2="15" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="mt-3">
+              <span class="text-gray-800 text-sm">Color:</span>
+              <div class="flex items-center mt-2">
+                <button class="h-5 w-5 rounded-full bg-blue-500 mr-2 border-2 border-transparent focus:border-gray-800 focus:outline-none text-gray-600 focus:text-gray-800">
+                </button>
+                <button class="h-5 w-5 rounded-full bg-green-500 mr-2 border-2 border-transparent focus:border-gray-800 focus:outline-none text-gray-600 focus:text-gray-800">
+                </button>
+                <button class="h-5 w-5 rounded-full bg-pink-500 border-2 border-transparent focus:border-gray-800 focus:outline-none text-gray-600 focus:text-gray-800">
+                </button>
+              </div>
+            </div>
+            <div class="flex items-center mt-5">
+              <button class="bg-indigo-500 hover:bg-indigo-700 text-sm text-white py-2 px-6 rounded">Order Now</button>
+              <button class="mx-2 p-2 hover:bg-gray-300 focus:outline-none text-gray-600 border rounded">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-current icon icon-tabler icon-tabler-shopping-cart" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z"/>
+                  <circle cx="9" cy="19" r="2" />
+                  <circle cx="17" cy="19" r="2" />
+                  <path d="M3 3h2l2 12a3 3 0 0 0 3 2h7a3 3 0 0 0 3 -2l1 -7h-15.2" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="mt-10">
+
+        </div>
+      </div>
+    </main>
   </div>
 </template>
 
