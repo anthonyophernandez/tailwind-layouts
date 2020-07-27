@@ -134,11 +134,11 @@
             <div class="mt-3">
               <span class="text-gray-800 text-sm">Color:</span>
               <div class="flex items-center mt-2">
-                <button class="h-5 w-5 rounded-full bg-blue-500 mr-2 border-2 border-transparent focus:border-gray-800 focus:outline-none text-gray-600 focus:text-gray-800">
+                <button @click="selectColor(1)" class="h-5 w-5 rounded-full bg-blue-500 mr-2 border-2 border-transparent focus:outline-none text-gray-600 focus:text-gray-800" :class="(1 === colorSelected)? 'border-gray-800' : ''">
                 </button>
-                <button class="h-5 w-5 rounded-full bg-green-500 mr-2 border-2 border-transparent focus:border-gray-800 focus:outline-none text-gray-600 focus:text-gray-800">
+                <button @click="selectColor(2)" class="h-5 w-5 rounded-full bg-green-500 mr-2 border-2 border-transparent focus:border-gray-800 focus:outline-none text-gray-600 focus:text-gray-800" :class="(2 === colorSelected)? 'border-gray-800' : ''">
                 </button>
-                <button class="h-5 w-5 rounded-full bg-pink-500 border-2 border-transparent focus:border-gray-800 focus:outline-none text-gray-600 focus:text-gray-800">
+                <button @click="selectColor(3)" class="h-5 w-5 rounded-full bg-pink-500 border-2 border-transparent focus:border-gray-800 focus:outline-none text-gray-600 focus:text-gray-800" :class="(3 === colorSelected)? 'border-gray-800' : ''">
                 </button>
               </div>
             </div>
@@ -178,7 +178,7 @@
         </div>
       </div>
     </main>
-    <footer class="border-t border-gray-400">
+    <footer class="h-16 border-t border-gray-400">
       <div class="flex items-center justify-between mx-auto px-6 py-3">
         <a class="cursor-pointer text-xl font-bold text-gray-500 hover:text-gray-600">Ecommerce</a>
         <p class="w-64 text-center text-gray-500">All rights reserved</p>
@@ -192,12 +192,16 @@ export default {
   name: 'EcommerceLayout',
   data () {
     return {
-      isOpenSidebar: false
+      isOpenSidebar: false,
+      colorSelected: 1
     }
   },
   methods: {
     toggleSidebar () {
       this.isOpenSidebar = !this.isOpenSidebar
+    },
+    selectColor (index) {
+      this.colorSelected = index
     }
   }
 }
