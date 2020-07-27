@@ -42,7 +42,7 @@
         </div>
       </div>
     </header>
-    <div v-show="isOpenSidebar" class="fixed z-50 inset-y-0 right-0 max-w-xs w-full h-full px-6 py-4 bg-white border-l border-gray-500">
+    <div v-show="isOpenSidebar" class="fixed z-50 inset-y-0 right-0 max-w-xs w-full h-full px-6 py-4 bg-white border-l border-gray-500 overflow-y-auto">
       <div class="flex items-center justify-between">
         <h3 class="text-gray-800 text-xl">Your cart</h3>
         <button class="focus:outline-none" @click="toggleSidebar">
@@ -90,7 +90,7 @@
           <button class="bg-indigo-500 hover:bg-indigo-700 text-white py-2 px-4 rounded">APPLY</button>
         </form>
       </div>
-      <a class="flex items-center justify-center mt-4 px-3 py-2 bg-indigo-500 hover:bg-indigo-700 text-white rounded cursor-pointer">
+      <a class="flex items-center justify-center my-4 px-3 py-2 bg-indigo-500 hover:bg-indigo-700 text-white rounded cursor-pointer">
         CHECKOUT
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-current icon icon-tabler icon-tabler-arrow-narrow-right" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z"/>
@@ -178,6 +178,12 @@
         </div>
       </div>
     </main>
+    <footer class="border-t border-gray-400">
+      <div class="flex items-center justify-between mx-auto px-6 py-3">
+        <a class="cursor-pointer text-xl font-bold text-gray-500 hover:text-gray-600">Ecommerce</a>
+        <p class="w-64 text-center text-gray-500">All rights reserved</p>
+      </div>
+    </footer>
   </div>
 </template>
 
