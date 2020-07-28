@@ -15,11 +15,13 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2 px-8 mb-8">
       <div class="relative w-full h-full bg-gray-100 border-2 border-indigo-700 rounded-sm" v-for="(project, index) in projects" :key="index">
         <img class="w-full h-full object-contain object-center" :src="project.img">
-        <router-link :to="project.url">
-          <div class="absolute flex items-center justify-center inset-0 hover:bg-indigo-900 hover:bg-opacity-75 text-2xl font-bold text-white text-opacity-0 hover:text-opacity-100 cursor-pointer">
-            {{ project.title }}
-          </div>
-        </router-link>
+        <div class="absolute flex items-center justify-center inset-0 hover:bg-indigo-900 hover:bg-opacity-75 text-2xl font-bold text-white text-opacity-0 hover:text-opacity-100 cursor-pointer">
+          <router-link :to="project.url">
+              <span class="hover:underline">{{ project.title }}</span>
+          </router-link>
+          <span class="mx-4">|</span>
+          <a class="hover:underline" :href="project.codeUrl" target="_blank">View Code</a>
+        </div>
       </div>
     </div>
   </div>
@@ -31,17 +33,19 @@ export default {
   name: 'Home',
   data () {
     return {
-      url: 'https://github.com/anthonyophernandez/tailwind-layouts/tree/master/src/views/layouts',
+      url: 'https://github.com/anthonyophernandez/tailwind-layouts',
       projects: [
         {
           title: 'DEV Layout',
           img: require('../assets/img/dev-layout.png'),
-          url: '/dev-layout'
+          url: '/dev-layout',
+          codeUrl: 'https://github.com/anthonyophernandez/tailwind-layouts/blob/master/src/views/layouts/DevLayout.vue'
         },
         {
           title: 'Ecommerce Layout',
           img: require('../assets/img/ecommerce-layout.png'),
-          url: '/ecommerce-layout'
+          url: '/ecommerce-layout',
+          codeUrl: 'https://github.com/anthonyophernandez/tailwind-layouts/blob/master/src/views/layouts/EcommerceLayout.vue'
         }
       ]
     }
