@@ -112,10 +112,10 @@
     <div v-show="isSidebarOpen" @click="toggleSidebar" class="fixed z-40 inset-0 opacity-25 bg-gray-900"></div>
     <main class="my-8">
       <div class="mx-auto px-6">
-        <div class="flex items-center justify-center">
-          <div class="w-1/2 max-w-xl h-64 bg-indigo-500 rounded">
+        <div class="flex flex-col md:flex-row items-center justify-center">
+          <div class="w-full md:w-1/2 max-w-xl h-64 bg-indigo-500 rounded">
           </div>
-          <div class="w-1/2 max-w-xl ml-6">
+          <div class="w-full md:w-1/2 max-w-xl mt-3 md:mt-0 md:ml-6">
             <h3 class="text-gray-800 text-lg">PRODUCT #1</h3>
             <span class="text-gray-600">55$</span>
             <hr class="my-3 border-gray-400">
@@ -166,8 +166,8 @@
         </div>
         <div class="mt-10">
           <h3 class="text-2xl text-gray-700">More Products</h3>
-          <div class="grid gap-3 grid-cols-4 mt-6">
-            <div class="w-full rounded-lg shadow-md overflow-hidden" v-for="index in 4" :key="index">
+          <div class="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
+            <div class="w-full max-w-sm mx-auto rounded-lg shadow-md overflow-hidden" v-for="index in 4" :key="index">
               <div class="flex items-end justify-end w-full h-64 bg-indigo-500">
                 <button class="mx-2 -mb-4 p-2 bg-indigo-500 hover:bg-indigo-700 focus:outline-none text-white border-2 border-white rounded-full">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-current icon icon-tabler icon-tabler-shopping-cart" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
