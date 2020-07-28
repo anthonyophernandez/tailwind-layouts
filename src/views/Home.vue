@@ -12,12 +12,12 @@
           Github
         </a>
     </div>
-    <div class="grid grid-cols-none sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 px-8 mb-8">
-      <div class="relative w-full h-full bg-gray-100 border-2 border-indigo-700 rounded-sm" v-for="index in 13" :key="index">
-        <img class="w-full h-full object-contain object-center" src="../assets/img/dev-layout.png">
-        <router-link to="/dev-layout">
+    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2 px-8 mb-8">
+      <div class="relative w-full h-full bg-gray-100 border-2 border-indigo-700 rounded-sm" v-for="(project, index) in projects" :key="index">
+        <img class="w-full h-full object-contain object-center" :src="project.img">
+        <router-link :to="project.url">
           <div class="absolute flex items-center justify-center inset-0 hover:bg-indigo-900 hover:bg-opacity-75 text-2xl font-bold text-white text-opacity-0 hover:text-opacity-100 cursor-pointer">
-            DEV Layout
+            {{ project.title }}
           </div>
         </router-link>
       </div>
@@ -31,7 +31,19 @@ export default {
   name: 'Home',
   data () {
     return {
-      url: 'https://github.com/anthonyophernandez/tailwind-layouts/tree/master/src/views/layouts'
+      url: 'https://github.com/anthonyophernandez/tailwind-layouts/tree/master/src/views/layouts',
+      projects: [
+        {
+          title: 'DEV Layout',
+          img: require('../assets/img/dev-layout.png'),
+          url: '/dev-layout'
+        },
+        {
+          title: 'Ecommerce Layout',
+          img: require('../assets/img/ecommerce-layout.png'),
+          url: '/ecommerce-layout'
+        }
+      ]
     }
   }
 }
