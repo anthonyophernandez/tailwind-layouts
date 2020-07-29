@@ -1,6 +1,6 @@
 <template>
-  <div class="flex w-full bg-gray-900">
-    <header class="w-20 h-screen">
+  <div class="flex w-full h-screen bg-gray-900">
+    <header class="w-20 h-full">
       <div class="flex flex-col items-center justify-between w-full h-full pt-1 pb-3 px-2 border-r border-gray-700 overflow-y-auto">
         <div class="flex flex-col justify-between">
           <a class="flex items-center justify-center cursor-pointer w-12 h-12 rounded-full hover:bg-blue-500 hover:bg-opacity-25">
@@ -86,7 +86,61 @@
         </div>
       </div>
     </header>
-    <main class="w-full"></main>
+    <main class="w-full h-full">
+      <div class="flex items-center justify-between cursor-pointer h-12 w-full px-4 pỳ-3">
+        <h2 class="text-xl font-semibold text-white">Home</h2>
+        <a class="flex items-center justify-center w-10 h-10 rounded-full text-blue-500 hover:bg-blue-500 hover:bg-opacity-25">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-star" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z"/>
+            <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z" />
+          </svg>
+        </a>
+      </div>
+      <hr class="border-gray-700">
+      <div class="flex px-4 py-3">
+        <div class="h-12 w-12 rounded-full bg-white hover:bg-gray-300 cursor-pointer"></div>
+        <div class="ml-2">
+          <textarea rows="2" cols="50" class="h-12 w-full resize-none max-w-sm bg-transparent text-white text-lg placeholder-gray-400" placeholder="What's happening?"/>
+          <div class="flex justify-between mt-2">
+            <div class="flex items-center w-32 justify-between">
+              <a class="flex items-center justify-center cursor-pointer w-8 h-8 rounded-full text-blue-500 hover:bg-blue-500 hover:bg-opacity-25">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-photo" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z"/>
+                  <line x1="15" y1="8" x2="15.01" y2="8" />
+                  <rect x="4" y="4" width="16" height="16" rx="3" />
+                  <path d="M4 15l4 -4a3 5 0 0 1 3 0l 5 5" />
+                  <path d="M14 14l1 -1a3 5 0 0 1 3 0l 2 2" />
+                </svg>
+              </a>
+              <a class="flex items-center justify-center cursor-pointer w-8 h-8 rounded-full text-blue-500 hover:bg-blue-500 hover:bg-opacity-25">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-movie" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z"/>
+                  <rect x="4" y="4" width="16" height="16" rx="2" />
+                  <line x1="8" y1="4" x2="8" y2="20" />
+                  <line x1="16" y1="4" x2="16" y2="20" />
+                  <line x1="4" y1="8" x2="8" y2="8" />
+                  <line x1="4" y1="16" x2="8" y2="16" />
+                  <line x1="4" y1="12" x2="20" y2="12" />
+                  <line x1="16" y1="8" x2="20" y2="8" />
+                  <line x1="16" y1="16" x2="20" y2="16" />
+                </svg>
+              </a>
+              <a class="flex items-center justify-center cursor-pointer w-8 h-8 rounded-full text-blue-500 hover:bg-blue-500 hover:bg-opacity-25">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-mood-smile" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z"/>
+                  <circle cx="12" cy="12" r="9" />
+                  <line x1="9" y1="10" x2="9.01" y2="10" />
+                  <line x1="15" y1="10" x2="15.01" y2="10" />
+                  <path d="M9.5 15a3.5 3.5 0 0 0 5 0" />
+                </svg>
+              </a>
+            </div>
+            <button class="bg-blue-500 px-8 py-2 text-white font-semibold rounded-full focus:outline-none">Tweet</button>
+          </div>
+        </div>
+      </div>
+      <hr class="border-4 border-gray-800">
+    </main>
   </div>
 </template>
 
