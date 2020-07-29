@@ -19,6 +19,11 @@ const routes = [
     path: '/ecommerce-layout',
     name: 'EcommerceLayout',
     component: () => import(/* webpackChunkName: "ecommerce-layout" */ '../views/layouts/EcommerceLayout.vue')
+  },
+  {
+    path: '/twitter-layout',
+    name: 'TwitterLayout',
+    component: () => import(/* webpackChunkName: "twitter-layout" */ '../views/layouts/TwitterLayout.vue')
   }
 ]
 

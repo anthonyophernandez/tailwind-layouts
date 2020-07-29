@@ -46,6 +46,12 @@ export default {
           img: require('../assets/img/ecommerce-layout.png'),
           url: '/ecommerce-layout',
           codeUrl: 'https://github.com/anthonyophernandez/tailwind-layouts/blob/master/src/views/layouts/EcommerceLayout.vue'
+        },
+        {
+          title: 'Twitter Layout',
+          img: require('../assets/img/ecommerce-layout.png'),
+          url: '/twitter-layout',
+          codeUrl: 'https://github.com/anthonyophernandez/tailwind-layouts/blob/master/src/views/layouts/TwitterLayout.vue'
         }
       ]
     }
