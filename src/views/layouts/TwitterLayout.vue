@@ -86,7 +86,7 @@
         </div>
       </div>
     </header>
-    <main class="w-full h-full">
+    <main class="w-full h-full overflow-y-auto">
       <div class="flex items-center justify-between cursor-pointer h-12 w-full px-4 pỳ-3">
         <h2 class="text-xl font-semibold text-white">Home</h2>
         <a class="flex items-center justify-center w-10 h-10 rounded-full text-blue-500 hover:bg-blue-500 hover:bg-opacity-25">
@@ -102,7 +102,7 @@
         <div class="ml-2">
           <textarea rows="2" cols="50" class="h-12 w-full resize-none max-w-sm bg-transparent text-white text-lg placeholder-gray-400" placeholder="What's happening?"/>
           <div class="flex justify-between mt-2">
-            <div class="flex items-center w-32 justify-between">
+            <div class="flex items-center justify-between w-32">
               <a class="flex items-center justify-center cursor-pointer w-8 h-8 rounded-full text-blue-500 hover:bg-blue-500 hover:bg-opacity-25">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-photo" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
                   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -140,6 +140,57 @@
         </div>
       </div>
       <hr class="border-4 border-gray-800">
+      <div class="flex px-4 py-3 cursor-pointer hover:bg-gray-800 border-b border-gray-700" v-for="index in 12" :key="index">
+        <div class="h-12 w-12 rounded-full bg-indigo-500 hover:bg-indigo-600 cursor-pointer"></div>
+        <div class="ml-2">
+          <p class="text-white cursor-pointer">
+            <span class="font-semibold hover:underline">Ilon Mask </span>
+            <span class="text-gray-500">@ilonmask &middot; 30 July</span>
+          </p>
+          <p class="w-full max-w-sm text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet molestiae veritatis laudantium asperiores saepe ipsum exercitationem, voluptatibus esse.</p>
+          <div class="flex items-center justify-between w-full mt-2">
+            <div class="flex items-center cursor-pointer text-gray-500 hover:text-blue-500">
+              <a class="flex items-center justify-center w-8 h-8 rounded-full hover:bg-blue-500 hover:bg-opacity-25">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-message-circle" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z"/>
+                  <path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1" />
+                  <line x1="12" y1="12" x2="12" y2="12.01" />
+                  <line x1="8" y1="12" x2="8" y2="12.01" />
+                  <line x1="16" y1="12" x2="16" y2="12.01" />
+                </svg>
+              </a>
+              <span class="ml-1 text-sm">76</span>
+            </div>
+            <div class="flex items-center cursor-pointer text-gray-500 hover:text-green-500">
+              <a class="flex items-center justify-center w-8 h-8 rounded-full hover:bg-green-500 hover:bg-opacity-25">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-arrows-sort" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z"/>
+                  <path d="M3 9l4-4l4 4m-4 -4v14" />
+                  <path d="M21 15l-4 4l-4-4m4 4v-14" />
+                </svg>
+              </a>
+              <span class="ml-1 text-sm">614</span>
+            </div>
+            <div class="flex items-center cursor-pointer text-gray-500 hover:text-red-500">
+              <a class="flex items-center justify-center w-8 h-8 rounded-full hover:bg-red-500 hover:bg-opacity-25">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-heart" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z"/>
+                  <path d="M12 20l-7 -7a4 4 0 0 1 6.5 -6a.9 .9 0 0 0 1 0a4 4 0 0 1 6.5 6l-7 7" />
+                </svg>
+              </a>
+              <span class="ml-1 text-sm">1.5K</span>
+            </div>
+            <a class="flex items-center justify-center cursor-pointer w-8 h-8 rounded-full text-gray-500 hover:text-blue-500 hover:bg-blue-500 hover:bg-opacity-25">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-upload" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z"/>
+                  <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+                  <polyline points="7 9 12 4 17 9" />
+                  <line x1="12" y1="4" x2="12" y2="16" />
+                </svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </main>
   </div>
 </template>
