@@ -388,6 +388,13 @@
         </div>
       </div>
     </main>
+    <button v-if="isMobile" class="absolute right-0 bottom-0 flex items-center justify-center w-12 h-12 mr-4 mb-16 p-2 text-white rounded-full bg-blue-500 hover:bg-blue-600 focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 stroke-current icon icon-tabler icon-tabler-pencil" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z"/>
+        <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+        <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+      </svg>
+    </button>
   </div>
 </template>
 
