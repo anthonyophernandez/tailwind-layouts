@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full h-screen bg-gray-900" :class="(isMobile) ? 'flex-col-reverse' : ''">
+  <div class="flex w-full h-screen bg-gray-900" :class="[(isMobile) ? 'flex-col-reverse' : '', (isSidebarOpen) ? 'h-screen overflow-y-hidden' : '']">
     <header v-if="!isMobile" class="w-20 xl:w-64 h-full">
       <div class="flex flex-col items-center justify-between w-full h-full pt-1 pb-3 px-2 border-r border-gray-700 overflow-y-auto">
         <div class="flex flex-col justify-between xl:w-full">
@@ -194,10 +194,10 @@
         </div>
       </nav>
     </header>
-    <main class="flex w-full h-full overflow-y-auto">
+    <main class="flex w-full h-full" :class="(isSidebarOpen) ? '': 'overflow-y-auto'">
       <div class="w-full lg:w-1/2">
         <div class="flex items-center justify-between bg-gray-900 cursor-pointer h-16 w-full px-4 py-3 border-r border-gray-700" :class="(isMobile) ? 'fixed border-b' : ''">
-          <a v-if="isMobile" class="flex items-center justify-center cursor-pointer w-12 h-12">
+          <a @click="isSidebarOpen = !isSidebarOpen" v-if="isMobile" class="flex items-center justify-center cursor-pointer w-12 h-12">
             <div class="h-8 w-8 rounded-full bg-white"></div>
           </a>
           <h2 class="text-xl font-semibold text-white">Latest Tweets</h2>
@@ -343,7 +343,7 @@
               </span>
             </p>
             <p class="text-white font-semibold text-sm">Ilon Mask</p>
-            <p class="text-gray-500 text-sm">11.K Tweets</p>
+            <p class="text-gray-500 text-sm">11K Tweets</p>
           </div>
           <div class="hover:bg-gray-800 px-4 py-4">
             <h2 class="cursor-pointer text-base text-blue-500">Show More</h2>
@@ -395,12 +395,32 @@
         <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
       </svg>
     </button>
+    <div v-show="isSidebarOpen" class="fixed z-50 inset-y-0 left-0 max-w-xs w-full h-full bg-gray-900 overflow-y-auto">
+      <div class="flex items-center justify-between w-full h-12 px-2">
+        <h2 class="text-white text-lg font-bold">Account info</h2>
+        <button @click="isSidebarOpen = !isSidebarOpen" class="flex items-center justify-center text-blue-500 w-8 h-8 rounded-full hover:bg-blue-500 hover:bg-opacity-25 focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-current icon icon-tabler icon-tabler-x" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z"/>
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <hr class="border-gray-700">
+      <div class="w-full h-full overflow-y-auto"></div>
+    </div>
+    <div v-show="isSidebarOpen" @click="isSidebarOpen = false" class="fixed z-40 inset-0 opacity-25 bg-gray-100"></div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'TwitterLayout',
+  data () {
+    return {
+      isSidebarOpen: false
+    }
+  },
   computed: {
     isMobile () {
       if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
