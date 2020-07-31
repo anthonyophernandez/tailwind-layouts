@@ -1,6 +1,6 @@
 <template>
-  <div class="flex w-full h-screen bg-gray-900" :class="(isMobile()) ? 'flex-col-reverse' : ''">
-    <header v-if="!isMobile()" class="w-20 xl:w-64 h-full">
+  <div class="flex w-full h-screen bg-gray-900" :class="(isMobile) ? 'flex-col-reverse' : ''">
+    <header v-if="!isMobile" class="w-20 xl:w-64 h-full">
       <div class="flex flex-col items-center justify-between w-full h-full pt-1 pb-3 px-2 border-r border-gray-700 overflow-y-auto">
         <div class="flex flex-col justify-between xl:w-full">
           <a class="flex items-center justify-center p-2 cursor-pointer w-12 h-12 rounded-full hover:bg-blue-500 hover:bg-opacity-25">
@@ -196,8 +196,8 @@
     </header>
     <main class="flex w-full h-full overflow-y-auto">
       <div class="w-full lg:w-1/2">
-        <div class="flex items-center justify-between bg-gray-900 cursor-pointer h-16 w-full px-4 py-3 border-r border-gray-700" :class="(isMobile()) ? 'fixed border-b' : ''">
-          <a v-if="isMobile()" class="flex items-center justify-center cursor-pointer w-12 h-12">
+        <div class="flex items-center justify-between bg-gray-900 cursor-pointer h-16 w-full px-4 py-3 border-r border-gray-700" :class="(isMobile) ? 'fixed border-b' : ''">
+          <a v-if="isMobile" class="flex items-center justify-center cursor-pointer w-12 h-12">
             <div class="h-8 w-8 rounded-full bg-white"></div>
           </a>
           <h2 class="text-xl font-semibold text-white">Latest Tweets</h2>
@@ -208,8 +208,8 @@
             </svg>
           </a>
         </div>
-        <hr class="border-gray-700" :class="(isMobile()) ? 'mb-16' : ''">
-        <div v-if="!isMobile()" class="flex w-full px-4 py-3 border-r border-gray-700">
+        <hr class="border-gray-700" :class="(isMobile) ? 'mb-16' : ''">
+        <div v-if="!isMobile" class="flex w-full px-4 py-3 border-r border-gray-700">
           <div class="w-12">
             <div class="h-12 w-12 rounded-full bg-white hover:bg-gray-300 cursor-pointer"></div>
           </div>
@@ -253,7 +253,7 @@
             </div>
           </div>
         </div>
-        <hr v-if="!isMobile()" class="border-4 border-gray-800">
+        <hr v-if="!isMobile" class="border-4 border-gray-800">
         <div class="flex w-full px-4 py-3 cursor-pointer hover:bg-gray-800 border-b border-r border-gray-700" v-for="index in 12" :key="index">
           <div class="w-12">
             <div class="h-12 w-12 rounded-full bg-indigo-500 hover:bg-indigo-600 cursor-pointer"></div>
@@ -394,7 +394,7 @@
 <script>
 export default {
   name: 'TwitterLayout',
-  methods: {
+  computed: {
     isMobile () {
       if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         return true

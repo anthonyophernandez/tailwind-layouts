@@ -15,8 +15,8 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2 px-8 mb-8">
       <div class="relative w-full h-full bg-gray-100 border-2 border-indigo-700 rounded-sm" v-for="(project, index) in projects" :key="index">
         <img class="w-full h-full object-contain object-center" :src="project.img">
-        <div class="absolute flex items-center justify-center inset-0 hover:bg-indigo-900 hover:bg-opacity-75 text-2xl font-bold text-white text-opacity-0 hover:text-opacity-100 cursor-pointer">
-          <router-link :to="project.url">
+        <div class="absolute flex items-center justify-center inset-0 hover:bg-indigo-900 hover:bg-opacity-75 sm:text-2xl text-lg text-center font-bold text-white text-opacity-0 hover:text-opacity-100 cursor-pointer">
+          <router-link :to="project.url" target="_blank">
               <span class="hover:underline">{{ project.title }}</span>
           </router-link>
           <span class="mx-4">|</span>
@@ -49,7 +49,7 @@ export default {
         },
         {
           title: 'Twitter Layout',
-          img: require('../assets/img/ecommerce-layout.png'),
+          img: require('../assets/img/twitter-layout.png'),
           url: '/twitter-layout',
           codeUrl: 'https://github.com/anthonyophernandez/tailwind-layouts/blob/master/src/views/layouts/TwitterLayout.vue'
         }
