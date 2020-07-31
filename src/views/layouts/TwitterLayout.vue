@@ -1,6 +1,6 @@
 <template>
-  <div class="flex w-full h-screen bg-gray-900">
-    <header class="w-20 xl:w-64 h-full">
+  <div class="flex w-full h-screen bg-gray-900" :class="(isMobile()) ? 'flex-col-reverse' : ''">
+    <header v-if="!isMobile()" class="w-20 xl:w-64 h-full">
       <div class="flex flex-col items-center justify-between w-full h-full pt-1 pb-3 px-2 border-r border-gray-700 overflow-y-auto">
         <div class="flex flex-col justify-between xl:w-full">
           <a class="flex items-center justify-center p-2 cursor-pointer w-12 h-12 rounded-full hover:bg-blue-500 hover:bg-opacity-25">
@@ -141,9 +141,65 @@
         </div>
       </div>
     </header>
+    <header v-else>
+      <nav class="flex justify-around my-1">
+        <div class="flex items-center cursor-pointer rounded-full text-blue-500 hover:bg-blue-500 hover:bg-opacity-25">
+          <a class="flex items-center justify-center w-12 h-12">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 stroke-current icon icon-tabler icon-tabler-home-2" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <polyline points="5 12 3 12 12 3 21 12 19 12" />
+              <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+              <rect x="10" y="12" width="4" height="4" />
+            </svg>
+          </a>
+          <span class="hidden xl:block font-bold ml-2">
+            Home
+          </span>
+        </div>
+        <div class="flex items-center cursor-pointer hover:text-blue-500 text-white hover:bg-blue-500 hover:bg-opacity-25 rounded-full">
+          <a class="flex items-center justify-center w-12 h-12">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 stroke-current icon icon-tabler icon-tabler-search" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <circle cx="10" cy="10" r="7" />
+              <line x1="21" y1="21" x2="15" y2="15" />
+            </svg>
+          </a>
+          <span class="hidden xl:block font-bold ml-2">
+            Explore
+          </span>
+        </div>
+        <div class="flex items-center cursor-pointer hover:text-blue-500 text-white hover:bg-blue-500 hover:bg-opacity-25 rounded-full">
+          <a class="flex items-center justify-center w-12 h-12">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 stroke-current icon icon-tabler icon-tabler-bell" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
+              <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+            </svg>
+          </a>
+          <span class="hidden xl:block font-bold ml-2">
+            Notifications
+          </span>
+        </div>
+        <div class="flex items-center cursor-pointer hover:text-blue-500 text-white hover:bg-blue-500 hover:bg-opacity-25 rounded-full">
+          <a class="flex items-center justify-center w-12 h-12">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 stroke-current icon icon-tabler icon-tabler-mail" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <polyline points="3 7 12 13 21 7" />
+            </svg>
+          </a>
+            <span class="hidden xl:block font-bold ml-2">
+              Messages
+            </span>
+        </div>
+      </nav>
+    </header>
     <main class="flex w-full h-full overflow-y-auto">
       <div class="w-full lg:w-1/2">
-        <div class="flex items-center justify-between cursor-pointer h-12 w-full px-4 py-3 border-r border-gray-700">
+        <div class="flex items-center justify-between bg-gray-900 cursor-pointer h-16 w-full px-4 py-3 border-r border-gray-700" :class="(isMobile()) ? 'fixed border-b' : ''">
+          <a v-if="isMobile()" class="flex items-center justify-center cursor-pointer w-12 h-12">
+            <div class="h-8 w-8 rounded-full bg-white"></div>
+          </a>
           <h2 class="text-xl font-semibold text-white">Latest Tweets</h2>
           <a class="flex items-center justify-center w-10 h-10 rounded-full text-blue-500 hover:bg-blue-500 hover:bg-opacity-25">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-star" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -152,8 +208,8 @@
             </svg>
           </a>
         </div>
-        <hr class="border-gray-700">
-        <div class="flex w-full px-4 py-3 border-r border-gray-700">
+        <hr class="border-gray-700" :class="(isMobile()) ? 'mb-16' : ''">
+        <div v-if="!isMobile()" class="flex w-full px-4 py-3 border-r border-gray-700">
           <div class="w-12">
             <div class="h-12 w-12 rounded-full bg-white hover:bg-gray-300 cursor-pointer"></div>
           </div>
@@ -197,7 +253,7 @@
             </div>
           </div>
         </div>
-        <hr class="border-4 border-gray-800">
+        <hr v-if="!isMobile()" class="border-4 border-gray-800">
         <div class="flex w-full px-4 py-3 cursor-pointer hover:bg-gray-800 border-b border-r border-gray-700" v-for="index in 12" :key="index">
           <div class="w-12">
             <div class="h-12 w-12 rounded-full bg-indigo-500 hover:bg-indigo-600 cursor-pointer"></div>
@@ -337,6 +393,15 @@
 
 <script>
 export default {
-  name: 'TwitterLayout'
+  name: 'TwitterLayout',
+  methods: {
+    isMobile () {
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
 }
 </script>
