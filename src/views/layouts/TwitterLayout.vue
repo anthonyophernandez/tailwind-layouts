@@ -194,7 +194,7 @@
         </div>
       </nav>
     </header>
-    <main class="flex w-full max-h-full" :class="(isSidebarOpen) ? '': 'overflow-y-auto'">
+    <main class="flex w-full max-h-screen" :class="(isSidebarOpen) ? '': 'overflow-y-auto'">
       <div class="w-full lg:w-1/2">
         <div class="flex items-center justify-between bg-gray-900 cursor-pointer h-16 w-full px-4 py-3 border-r border-gray-700" :class="(isMobile) ? 'fixed border-b' : ''">
           <button @click="isSidebarOpen = !isSidebarOpen" v-if="isMobile" class="flex items-center justify-center w-12 h-12">
