@@ -197,9 +197,9 @@
     <main class="flex w-full h-full" :class="(isSidebarOpen) ? '': 'overflow-y-auto'">
       <div class="w-full lg:w-1/2">
         <div class="flex items-center justify-between bg-gray-900 cursor-pointer h-16 w-full px-4 py-3 border-r border-gray-700" :class="(isMobile) ? 'fixed border-b' : ''">
-          <a @click="isSidebarOpen = !isSidebarOpen" v-if="isMobile" class="flex items-center justify-center cursor-pointer w-12 h-12">
+          <button @click="isSidebarOpen = !isSidebarOpen" v-if="isMobile" class="flex items-center justify-center w-12 h-12">
             <div class="h-8 w-8 rounded-full bg-white"></div>
-          </a>
+          </button>
           <h2 class="text-xl font-semibold text-white">Latest Tweets</h2>
           <a class="flex items-center justify-center w-10 h-10 rounded-full text-blue-500 hover:bg-blue-500 hover:bg-opacity-25">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-star" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -262,7 +262,7 @@
             <p class="flex justify-between w-full text-white cursor-pointer">
               <span>
                 <span class="font-semibold hover:underline">Ilon Mask </span>
-                <span class="text-gray-500">@ilonmask &middot; 14m</span>
+                <span class="text-gray-600">@ilonmask &middot; 14m</span>
               </span>
               <span class="flex items-center justify-center w-6 h-6 rounded-full hover:bg-blue-500 hover:bg-opacity-25 text-gray-500 hover:text-blue-500">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-current icon icon-tabler icon-tabler-chevron-down" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -396,18 +396,197 @@
       </svg>
     </button>
     <div v-show="isSidebarOpen" class="fixed z-50 inset-y-0 left-0 max-w-xs w-full h-full bg-gray-900 overflow-y-auto">
-      <div class="flex items-center justify-between w-full h-12 px-2">
-        <h2 class="text-white text-lg font-bold">Account info</h2>
-        <button @click="isSidebarOpen = !isSidebarOpen" class="flex items-center justify-center text-blue-500 w-8 h-8 rounded-full hover:bg-blue-500 hover:bg-opacity-25 focus:outline-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-current icon icon-tabler icon-tabler-x" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z"/>
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
+      <div class="fixed w-full max-w-xs">
+        <div class="flex items-center justify-between w-full h-12 pl-3 pr-1 bg-gray-900">
+          <h2 class="text-white text-lg font-bold">Account info</h2>
+          <button @click="isSidebarOpen = !isSidebarOpen" class="flex items-center justify-center text-blue-500 w-8 h-8 rounded-full hover:bg-blue-500 hover:bg-opacity-25 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-current icon icon-tabler icon-tabler-x" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+        <hr class="border-gray-700">
       </div>
-      <hr class="border-gray-700">
-      <div class="w-full h-full overflow-y-auto"></div>
+      <div class="w-full mt-12 overflow-y-auto">
+        <div class="w-full p-3">
+          <div class="flex items-start justify-between">
+            <a class="cursor-pointer">
+              <div class="h-10 w-10 mb-2 rounded-full bg-white hover:bg-gray-300"></div>
+              <span>
+                <p class="text-white font-bold">Ilon Mask</p>
+                <p class="text-gray-600">@ilonmask</p>
+              </span>
+            </a>
+            <button class="flex items-center justify-center w-8 h-8 text-blue-500 border border-blue-500 hover:bg-blue-500 hover:bg-opacity-25 rounded-full focus:outline-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 stroke-current icon icon-tabler icon-tabler-plus" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z"/>
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </button>
+          </div>
+          <div class="w-full mt-3">
+            <a class="text-white cursor-pointer hover:underline"><span class="font-bold">0</span><span class="font-normal text-gray-600"> Following</span></a>
+            <a class="ml-3 text-white cursor-pointer hover:underline"><span class="font-bold">37.3M</span><span class="font-normal text-gray-600"> Followers</span></a>
+          </div>
+        </div>
+        <div class="flex items-center w-full h-12 px-2 cursor-pointer text-white hover:bg-blue-500 hover:bg-opacity-25">
+          <a class="flex items-center w-full h-full text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-user" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <circle cx="12" cy="7" r="4" />
+              <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+            </svg>
+            <span class="text-white ml-2">
+              Profile
+            </span>
+          </a>
+        </div>
+        <div class="flex items-center w-full h-12 px-2 cursor-pointer text-white hover:bg-blue-500 hover:bg-opacity-25">
+          <a class="flex items-center w-full h-full text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-notes" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <rect x="5" y="3" width="14" height="18" rx="2" />
+              <line x1="9" y1="7" x2="15" y2="7" />
+              <line x1="9" y1="11" x2="15" y2="11" />
+              <line x1="9" y1="15" x2="13" y2="15" />
+            </svg>
+            <span class="text-white ml-2">
+              Lists
+            </span>
+          </a>
+        </div>
+        <div class="flex items-center w-full h-12 px-2 cursor-pointer text-white hover:bg-blue-500 hover:bg-opacity-25">
+          <a class="flex items-center w-full h-full text-gray-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-message-circle" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z"/>
+            <path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1" />
+            <line x1="12" y1="12" x2="12" y2="12.01" />
+            <line x1="8" y1="12" x2="8" y2="12.01" />
+            <line x1="16" y1="12" x2="16" y2="12.01" />
+          </svg>
+            <span class="text-white ml-2">
+              Topics
+            </span>
+          </a>
+        </div>
+        <div class="flex items-center w-full h-12 px-2 cursor-pointer text-white hover:bg-blue-500 hover:bg-opacity-25">
+          <a class="flex items-center w-full h-full text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-bookmark" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <path d="M9 4h6a2 2 0 0 1 2 2v14l-5-3l-5 3v-14a2 2 0 0 1 2 -2" />
+            </svg>
+            <span class="text-white ml-2">
+              Bookmarks
+            </span>
+          </a>
+        </div>
+        <div class="flex items-center w-full h-12 px-2 cursor-pointer text-white hover:bg-blue-500 hover:bg-opacity-25">
+          <a class="flex items-center w-full h-full text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-bolt" viewBox="0 0 24 24" stroke-width="1.5"  fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <polyline points="13 3 13 10 19 10 11 21 11 14 5 14 13 3" />
+            </svg>
+            <span class="text-white ml-2">
+              Moments
+            </span>
+          </a>
+        </div>
+        <hr class="border-gray-700">
+        <div class="flex items-center w-full h-12 px-2 cursor-pointer text-white hover:bg-blue-500 hover:bg-opacity-25">
+          <a class="flex items-center w-full h-full text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-arrow-up-right-circle" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <circle cx="12" cy="12" r="9" />
+              <line x1="15" y1="9" x2="9" y2="15" />
+              <polyline points="15 15 15 9 9 9" />
+            </svg>
+            <span class="text-white ml-2">
+              Twitter Ads
+            </span>
+          </a>
+        </div>
+        <div class="flex items-center w-full h-12 px-2 cursor-pointer text-white hover:bg-blue-500 hover:bg-opacity-25">
+          <a class="flex items-center w-full h-full text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-chart-bar" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <rect x="3" y="12" width="6" height="8" rx="1" />
+              <rect x="9" y="8" width="6" height="12" rx="1" />
+              <rect x="15" y="4" width="6" height="16" rx="1" />
+              <line x1="4" y1="20" x2="18" y2="20" />
+            </svg>
+            <span class="text-white ml-2">
+              Analytics
+            </span>
+          </a>
+        </div>
+        <hr class="border-gray-700">
+        <div class="flex items-center w-full h-12 px-2 cursor-pointer text-white hover:bg-blue-500 hover:bg-opacity-25">
+          <a class="flex items-center w-full h-full text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-settings" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            <span class="text-white ml-2">
+              Settings and privacy
+            </span>
+          </a>
+        </div>
+        <div class="flex items-center w-full h-12 px-2 cursor-pointer text-white hover:bg-blue-500 hover:bg-opacity-25">
+          <a class="flex items-center w-full h-full text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-help" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <circle cx="12" cy="12" r="9" />
+              <line x1="12" y1="17" x2="12" y2="17.01" />
+              <path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4" />
+            </svg>
+            <span class="text-white ml-2">
+              Help Center
+            </span>
+          </a>
+        </div>
+        <hr class="border-gray-700">
+        <div class="flex items-center w-full h-12 px-2 cursor-pointer text-white hover:bg-blue-500 hover:bg-opacity-25">
+          <a class="flex items-center w-full h-full text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-chart-pie" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <path d="M10 3.2a9 9 0 1 0 10.8 10.8a1 1 0 0 0 -1 -1h-6.8a2 2 0 0 1 -2 -2v-7a.9 .9 0 0 0 -1 -.8" />
+              <path d="M15 3.5a9 9 0 0 1 5.5 5.5h-4.5a1 1 0 0 1 -1 -1v-4.5" />
+            </svg>
+            <span class="text-white ml-2">
+              Data saver
+            </span>
+          </a>
+          <div class="relative" @click="status = !status">
+            <input type="checkbox" class="hidden">
+            <div class="w-10 h-4 rounded-full shadow-inner" :class="(status)? 'bg-blue-400': 'bg-gray-400'"></div>
+            <div class="absolute w-6 h-6 -my-1 rounded-full shadow inset-y-0" :class="(status) ? 'right-0 bg-blue-500' : 'left-0 bg-white'"></div>
+          </div>
+        </div>
+        <div class="flex items-center w-full h-12 px-2 cursor-pointer text-white hover:bg-blue-500 hover:bg-opacity-25">
+          <a class="flex items-center w-full h-full text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current icon icon-tabler icon-tabler-brush" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
+              <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
+              <path d="M21 3a16 16 0 0 1 -10.2 12.8" />
+              <path d="M10.6 9a9 9 0 0 1 4.4 4.4" />
+            </svg>
+            <span class="text-white ml-2">
+              Display
+            </span>
+          </a>
+        </div>
+        <hr class="border-gray-700">
+        <div class="flex items-center w-full h-12 mb-10 px-2 cursor-pointer text-white hover:bg-blue-500 hover:bg-opacity-25">
+          <button class="flex items-center w-full h-full focus:outline-none">
+            Log out
+          </button>
+        </div>
+      </div>
     </div>
     <div v-show="isSidebarOpen" @click="isSidebarOpen = false" class="fixed z-40 inset-0 opacity-25 bg-gray-100"></div>
   </div>
@@ -418,7 +597,8 @@ export default {
   name: 'TwitterLayout',
   data () {
     return {
-      isSidebarOpen: false
+      isSidebarOpen: false,
+      status: false
     }
   },
   computed: {
