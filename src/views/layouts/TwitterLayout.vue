@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full h-screen bg-gray-900" :class="[(isMobile) ? 'relative' : '', (isSidebarOpen) ? 'h-screen overflow-y-hidden' : '']">
+  <div class="w-full h-screen bg-gray-900" :class="[(isMobile) ? 'relative' : 'flex', (isSidebarOpen) ? 'h-screen overflow-y-hidden' : '']">
     <header v-if="!isMobile" class="w-20 xl:w-64 h-full">
       <div class="flex flex-col items-center justify-between w-full h-full pt-1 pb-3 px-2 border-r border-gray-700 overflow-y-auto">
         <div class="flex flex-col justify-between xl:w-full">
