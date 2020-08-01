@@ -1,24 +1,15 @@
 # tailwind-layouts
 
-## Project setup
+## Description
+
+A collection of Tailwind templates.
+
+## Goals of this small project
+
+Learning how to design responsive templates with Tailwind CSS. Sidebars, nav bars, hide/show elements, etc ...
+
+## To see the demo, run
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
