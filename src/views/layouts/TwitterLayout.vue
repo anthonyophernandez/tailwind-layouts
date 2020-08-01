@@ -141,7 +141,7 @@
         </div>
       </div>
     </header>
-    <header v-else>
+    <header v-else class="w-full h-16">
       <nav class="flex justify-around my-1">
         <div class="flex items-center cursor-pointer rounded-full text-blue-500 hover:bg-blue-500 hover:bg-opacity-25">
           <a class="flex items-center justify-center w-12 h-12">
