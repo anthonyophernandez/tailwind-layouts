@@ -194,7 +194,7 @@
         </div>
       </nav>
     </header>
-    <main class="flex w-full h-full" :class="(isSidebarOpen) ? '': 'overflow-y-auto'">
+    <main class="flex w-full max-h-full" :class="(isSidebarOpen) ? '': 'overflow-y-auto'">
       <div class="w-full lg:w-1/2">
         <div class="flex items-center justify-between bg-gray-900 cursor-pointer h-16 w-full px-4 py-3 border-r border-gray-700" :class="(isMobile) ? 'fixed border-b' : ''">
           <button @click="isSidebarOpen = !isSidebarOpen" v-if="isMobile" class="flex items-center justify-center w-12 h-12">
@@ -389,7 +389,7 @@
         </div>
       </div>
     </main>
-    <button v-if="isMobile" class="absolute right-0 bottom-0 flex items-center justify-center w-12 h-12 mr-4 mb-16 p-2 text-white rounded-full bg-blue-500 hover:bg-blue-600 focus:outline-none">
+    <button v-if="isMobile" class="absolute right-0 bottom-0 flex items-center justify-center w-12 h-12 mr-4 mb-20 p-2 text-white rounded-full bg-blue-500 hover:bg-blue-600 focus:outline-none">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 stroke-current icon icon-tabler icon-tabler-pencil" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z"/>
         <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
