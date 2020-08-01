@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full h-screen bg-gray-900" :class="[(isMobile) ? 'flex-col-reverse' : '', (isSidebarOpen) ? 'h-screen overflow-y-hidden' : '']">
+  <div class="flex w-full h-screen bg-gray-900" :class="[(isMobile) ? 'relative' : '', (isSidebarOpen) ? 'h-screen overflow-y-hidden' : '']">
     <header v-if="!isMobile" class="w-20 xl:w-64 h-full">
       <div class="flex flex-col items-center justify-between w-full h-full pt-1 pb-3 px-2 border-r border-gray-700 overflow-y-auto">
         <div class="flex flex-col justify-between xl:w-full">
@@ -141,7 +141,7 @@
         </div>
       </div>
     </header>
-    <header v-else class="w-full h-16">
+    <header v-else class="absolute inset-x-0 bottom-0 w-full h-16 bg-gray-900">
       <nav class="flex justify-around my-1">
         <div class="flex items-center cursor-pointer rounded-full text-blue-500 hover:bg-blue-500 hover:bg-opacity-25">
           <a class="flex items-center justify-center w-12 h-12">
@@ -315,6 +315,7 @@
             </div>
           </div>
         </div>
+        <div class="w-full h-16" :class="(isMobile) ? '':'hidden'"></div>
       </div>
       <div class="hidden lg:block w-1/2 py-1 px-6">
         <div class="relative w-full mx-auto mb-4">
